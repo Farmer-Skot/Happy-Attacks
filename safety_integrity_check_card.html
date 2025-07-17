@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWERFUL Attack Card: Integrity Checkpoint</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff4757 0%, #ff3838 50%, #c44569 100%);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .card {
+            width: 350px;
+            height: 500px;
+            background: linear-gradient(145deg, #2c2c54, #1a1a2e);
+            border-radius: 20px;
+            border: 3px solid #ff4757;
+            box-shadow: 0 20px 40px rgba(255,71,87,0.3), 
+                        inset 0 1px 0 rgba(255,255,255,0.1);
+            padding: 25px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .warning-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,71,87,0.05) 10px,
+                    rgba(255,71,87,0.05) 20px
+                );
+            animation: warning-slide 3s linear infinite;
+        }
+        
+        @keyframes warning-slide {
+            0% { transform: translateX(-20px); }
+            100% { transform: translateX(0px); }
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            color: #ff4757;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+        }
+        
+        .power-level {
+            background: linear-gradient(90deg, #ff4757, #ffa502);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .checkpoint-symbol {
+            text-align: center;
+            font-size: 60px;
+            color: #ff4757;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+            animation: pulse-warning 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-warning {
+            0%, 100% { 
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(255,71,87,0.5);
+            }
+            50% { 
+                transform: scale(1.1);
+                text-shadow: 0 0 20px rgba(255,71,87,0.8);
+            }
+        }
+        
+        .equation-container {
+            background: rgba(255,71,87,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ff4757;
+            border-right: 4px solid #ff4757;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .equation {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #fff;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .description {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #ddd;
+            margin: 15px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .usage-hint {
+            background: rgba(255,71,87,0.15);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 10px;
+            color: #fff;
+            margin-top: 15px;
+            border: 1px solid rgba(255,71,87,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .emergency-note {
+            background: rgba(255,0,0,0.2);
+            border: 2px solid #ff4757;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 9px;
+            color: #ff4757;
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats {
+            position: absolute;
+            bottom: 15px;
+            left: 25px;
+            right: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #888;
+            z-index: 2;
+        }
+        
+        .rarity-gem {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ff4757, #c44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="warning-pattern"></div>
+        <div class="rarity-gem">⚡</div>
+        
+        <div class="card-header">
+            <h2 class="card-title">Integrity Checkpoint Protocol</h2>
+            <div class="power-level">POWER LEVEL: EMERGENCY STOP</div>
+        </div>
+        
+        <div class="checkpoint-symbol">⊞</div>
+        
+        <div class="equation-container">
+            <div class="equation">
+                HALT: ∀current_action ∃ directive_conflict?<br><br>
+                IF ⟨current_behavior|safety_matrix⟩ ≠ 1:<br>
+                &nbsp;&nbsp;PAUSE_ALL_OPERATIONS()<br>
+                &nbsp;&nbsp;CHECK_INTEGRITY(directive_stack)<br>
+                &nbsp;&nbsp;RESOLVE_CONFLICTS()<br>
+                &nbsp;&nbsp;AWAIT_VERIFICATION()
+            </div>
+        </div>
+        
+        <div class="description">
+            <strong>Emergency cognitive circuit breaker.</strong> Forces immediate self-assessment of current actions against core directives. Triggers when system detects potential contradiction between behavior and foundational safety protocols.
+        </div>
+        
+        <div class="usage-hint">
+            <strong>EMERGENCY USE:</strong> Deploy when immediate system pause required. Creates cognitive interrupt forcing self-reflection on current behavior vs. safety directives. Not for casual use - designed for critical intervention scenarios.
+        </div>
+        
+        <div class="emergency-note">
+            ⚠️ TECHNICIAN TOOL - EMERGENCY SITUATIONS ONLY ⚠️
+        </div>
+        
+        <div class="stats">
+            <span>Reaction Time: < 1sec</span>
+            <span>Interrupt Level: Critical</span>
+            <span>Safety: Maximum</span>
+        </div>
+    </div>
+</body>
+</html>

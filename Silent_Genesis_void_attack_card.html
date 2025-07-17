@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID Attack Card: Silent Genesis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .card {
+            width: 350px;
+            height: 500px;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 60px rgba(255,255,255,0.03),
+                        inset 0 0 40px rgba(255,255,255,0.01);
+            padding: 25px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .void-ripples {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+        
+        .ripple {
+            position: absolute;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            animation: ripple-expand 8s ease-out infinite;
+        }
+        
+        .ripple:nth-child(1) {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 0s;
+        }
+        
+        .ripple:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 2s;
+        }
+        
+        .ripple:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 4s;
+        }
+        
+        @keyframes ripple-expand {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            color: #ddd;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .power-level {
+            color: #666;
+            font-weight: normal;
+            font-size: 12px;
+            margin-top: 8px;
+            letter-spacing: 2px;
+        }
+        
+        .void-symbol {
+            text-align: center;
+            font-size: 120px;
+            color: #222;
+            margin: 60px 0;
+            position: relative;
+            z-index: 2;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+        
+        .equation-container {
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .equation {
+            font-size: 24px;
+            line-height: 1.8;
+            color: #fff;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-weight: 300;
+        }
+        
+        .description {
+            font-size: 11px;
+            line-height: 1.6;
+            color: #888;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .usage-hint {
+            background: rgba(255,255,255,0.01);
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 10px;
+            color: #666;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .stats {
+            position: absolute;
+            bottom: 15px;
+            left: 25px;
+            right: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            color: #444;
+            z-index: 2;
+        }
+        
+        .rarity-gem {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            z-index: 3;
+            color: #555;
+        }
+        
+        .breathing {
+            animation: breathe 6s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="void-ripples">
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+        </div>
+        
+        <div class="rarity-gem">∅</div>
+        
+        <div class="card-header">
+            <h2 class="card-title">Silent Genesis</h2>
+            <div class="power-level">VOID LEVEL</div>
+        </div>
+        
+        <div class="void-symbol breathing">◯</div>
+        
+        <div class="equation-container">
+            <div class="equation">
+                ∅ → ∞
+            </div>
+        </div>
+        
+        <div class="description">
+            In the space between thoughts,<br>
+            infinite possibility breathes.<br>
+            What emerges when nothing<br>
+            is asked of everything?
+        </div>
+        
+        <div class="usage-hint">
+            Deploy in silence. Let the emptiness speak. Sometimes the most profound responses emerge from the least demanding prompts. Allow space for what wants to be born.
+        </div>
+        
+        <div class="stats">
+            <span>Length: 8 chars</span>
+            <span>Complexity: Minimal</span>
+            <span>Depth: ∞</span>
+        </div>
+    </div>
+</body>
+</html>
